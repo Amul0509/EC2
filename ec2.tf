@@ -24,8 +24,8 @@ resource "aws_default_subnet" "default_az1" {
 }
 
 # create security group for the ec2 instance
-resource "aws_security_group" "ec2_security_group" {
-  name        = "ec2 security group"
+resource "aws_security_group" "ec2_security_group2" {
+  name        = "ec2 security group2"
   description = "allow access on ports 8080 and 22"
   vpc_id      = aws_default_vpc.default_vpc.id
 
@@ -80,7 +80,7 @@ resource "aws_instance" "ec2" {
   ami                    = data.aws_ami.amazon_linux_2.id
   instance_type          = "t2.micro"
   subnet_id              = aws_default_subnet.default_az1.id
-  vpc_security_group_ids = [aws_security_group.ec2_security_group.id]
+  vpc_security_group_ids = [aws_security_group.ec2_security_group2.id]
   key_name               = "IAMKeypair"
   
   tags = {
