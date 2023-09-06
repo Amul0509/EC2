@@ -1,4 +1,4 @@
-#jenkins pipleine script
+#jenkins pipeline script
 pipeline {
     
     environment {
